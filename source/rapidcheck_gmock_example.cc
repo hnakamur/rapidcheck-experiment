@@ -9,19 +9,16 @@
 
 using ::testing::AtLeast;
 
-RC_GTEST_PROP(PainterTest,
-              CanDrawSomething,
-              (const int x)) {
+RC_GTEST_PROP(PainterTest, CanDrawSomething, (const int x)) {
   MockTurtle turtle;
-  EXPECT_CALL(turtle, PenDown())
-      .Times(AtLeast(1));
+  EXPECT_CALL(turtle, PenDown()).Times(AtLeast(1));
 
   Painter painter(&turtle);
 
   RC_ASSERT(painter.DrawCircle(x, 0, 10));
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char** argv) {
   ::testing::InitGoogleMock(&argc, argv);
 
   // This installs the RapidCheck listener.
