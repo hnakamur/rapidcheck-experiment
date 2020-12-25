@@ -53,3 +53,4 @@ add_library(rapidcheck_gtest INTERFACE IMPORTED)
 add_library(rapidcheck_gmock INTERFACE IMPORTED)
 
 add_subdirectory(source)
+add_subdirectory(test)
