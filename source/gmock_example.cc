@@ -1,6 +1,6 @@
 #include "mock-turtle.h"
-#include "gmock/gmock.h"
-#include "gtest/gtest.h"
+#include <gmock/gmock.h>
+#include <gtest/gtest.h>
 #include "painter.h"
 
 using ::testing::AtLeast;

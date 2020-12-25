@@ -4,7 +4,7 @@
 class Painter {
   public:
     Painter(Turtle* turtle): turtle_(turtle) {}
-  
+
     int DrawCircle(int x, int y, int r) {
       turtle_->PenDown();
       return 1;

@@ -1,7 +1,7 @@
 #include "mock-turtle.h"
+
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
-
 #include <rapidcheck/gtest.h>
 #include <rapidcheck/gmock.h>
 

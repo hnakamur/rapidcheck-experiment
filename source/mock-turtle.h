@@ -2,7 +2,7 @@
 #define MOCKTURTLE_H_
 
 #include "turtle.h"
-#include "gmock/gmock.h"
+#include <gmock/gmock.h>
 
 class MockTurtle : public Turtle {
   public:
