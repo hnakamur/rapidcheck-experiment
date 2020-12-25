@@ -12,4 +12,4 @@ test: build
 	(cd build/test && ctest)
 
 clean:
-	@rm -rf build
+	@cmake -E remove_directory build
