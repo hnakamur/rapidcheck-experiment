@@ -22,11 +22,19 @@ ExternalProject_Add(GoogleTest
 )
 add_library(gtest STATIC IMPORTED)
 add_library(gtest_main STATIC IMPORTED)
+add_library(gmock STATIC IMPORTED)
+add_library(gmock_main STATIC IMPORTED)
 set_target_properties(gtest PROPERTIES
   IMPORTED_LOCATION ${installDir}/lib/libgtest.a
 )
 set_target_properties(gtest_main PROPERTIES
   IMPORTED_LOCATION ${installDir}/lib/libgtest_main.a
+)
+set_target_properties(gmock PROPERTIES
+  IMPORTED_LOCATION ${installDir}/lib/libgmock.a
+)
+set_target_properties(gmock_main PROPERTIES
+  IMPORTED_LOCATION ${installDir}/lib/libgmock_main.a
 )
 
 include_directories(${installDir}/include)
@@ -34,7 +42,7 @@ include_directories(${installDir}/include)
 ExternalProject_Add(RapidCheck
   URL               https://github.com/emil-e/rapidcheck/archive/master.tar.gz
   CMAKE_ARGS        -DCMAKE_INSTALL_PREFIX:PATH=${installDir}
-                    -DRC_ENABLE_GTEST=ON
+                    -DRC_ENABLE_GTEST:BOOL=ON -DRC_ENABLE_GMOCK:BOOL=ON
 )
 ExternalProject_Add_StepDependencies(RapidCheck configure GoogleTest)
 add_library(rapidcheck STATIC IMPORTED)
@@ -42,5 +50,6 @@ set_target_properties(rapidcheck PROPERTIES
   IMPORTED_LOCATION ${installDir}/lib/librapidcheck.a
 )
 add_library(rapidcheck_gtest INTERFACE IMPORTED)
+add_library(rapidcheck_gmock INTERFACE IMPORTED)
 
 add_subdirectory(source)
